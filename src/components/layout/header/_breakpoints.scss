@@ -1,0 +1,89 @@
+// _breakpoints.scss
+@use 'sass:map';
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 768px,
+  sm: 425px,
+  xs: 375px,
+  xxs: 320px,
+);
+
+// Функція-помічник: повертає значення брейкпоінта
+@function bp($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  }
+  @warn "Немає брейкпоінта `#{$name}`.";
+  @return null;
+}
+
+// Старий mixin — max-width (mobile-last / legacy). Залишаю для сумісності.
+@mixin respond-to($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (max-width: #{bp($name)}) {
+      @content;
+    }
+  } @else {
+    @warn "Немає брейкпоінта `#{$name}`.";
+  }
+}
+
+// Новий mixin — min-width (mobile-first)
+@mixin respond-from($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (min-width: #{bp($name)}) {
+      @content;
+    }
+  } @else {
+    @warn "Немає брейкпоінта `#{$name}`.";
+  }
+}
+
+// Мixin для діапазону: від $from до $to
+@mixin between($from, $to) {
+  @if map.has-key($breakpoints, $from) and map.has-key($breakpoints, $to) {
+    $min: bp($from);
+    $max: bp($to);
+    @media (min-width: #{$min}) and (max-width: #{$max}) {
+      @content;
+    }
+  } @else {
+    @warn "Немає одного з брейкпоінтів `#{$from}` або `#{$to}`.";
+  }
+}
+
+// Високий DPI / retina
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+// Користувач просить зменшити анімацію
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// Селектори для hover/pointer: корисно для адаптації UI
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin pointer-coarse {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+// Приклади використання (коментарі):
+// @include respond-to(md) { ... }       // legacy: max-width: 768px
+// @include respond-from(md) { ... }     // min-width: 768px (mobile-first)
+// @include between(sm, lg) { ... }      // між 425px і 1024px
+// @include retina { ... }                // для high-DPI дисплеїв
+// @include reduced-motion { ... }        // для користувачів з вимкненими анімаціями

@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.scss'
+import { useState } from 'react';
+import './App.scss';
+import Header from './components/layout/header/header';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <header>Test</header>
+    <Header />
   )
 }
 
-export default App
+export default App;
