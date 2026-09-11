@@ -7,6 +7,7 @@ import ts from '../../assets/icon/ts.svg';
 import gitHub from  '../../assets/icon/github.svg';
 import angular from '../../assets/icon/angular.svg';
 import bem from '../../assets/icon/bem.svg';
+import SkillCard from "../elements/skill-card/skill-card";
 
 const skills = [
   { label: "HTML5 / CSS3", icon: html5 },
@@ -18,7 +19,7 @@ const skills = [
   { label: "BEM", icon: bem },
 ];
 
-export default function Skills() {
+function Skills() {
   return (
     <section className="skils">
       <div className="skils__container">
@@ -30,12 +31,7 @@ export default function Skills() {
         <ul className="skils__container__grid">
           {skills.map((elem, index) => (
             <li key={index}>
-              <img
-                src={elem.icon}
-                alt={elem.label}
-                aria-hidden
-              />
-              <span>{elem.label}</span>
+                <SkillCard data = {elem}/>
             </li>
           ))}
         </ul>
@@ -43,3 +39,5 @@ export default function Skills() {
     </section>
   );
 }
+
+export default Skills;
