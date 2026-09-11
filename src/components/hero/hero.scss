@@ -1,0 +1,107 @@
+.hero {
+  background: linear-gradient(135deg, #c8dff5 0%, #ddeeff 40%, #eef6ff 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+
+  &__content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding: clamp(48px, 7vw, 84px) clamp(20px, 5vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px;
+  }
+
+  &__text {
+    flex: 1;
+    max-width: 560px;
+
+    &__name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #075bb8;
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #075bb8;
+      margin-bottom: 20px;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: #2c3e50;
+      line-height: 1.5;
+    }
+
+    &__socials {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      a {
+        background: #075bb8;
+        color: #fff;
+        border: 2px solid #075bb8;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background: #075bb8;
+          border-color: #075bb8;
+        }
+        &:nth-child(2) {
+          background: #fff;
+          color: #2c3e50;
+          border: 2px solid #1a7fe81f;;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(7, 91, 184, 0.25);
+        }
+      }
+    }
+  }
+
+  &__photo {
+    width: 270px;
+    height: 270px;
+
+    img {
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      display: block;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero__content {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+    .hero__photo {
+      width: 240px;
+      height: 240px;
+    }
+  }
+}
