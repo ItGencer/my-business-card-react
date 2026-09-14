@@ -5,6 +5,7 @@ import Hero from "./components/hero/hero";
 import AboutUs from "./components/about-us/about-us";
 import Skills from "./components/skils/skills";
 import Services from "./components/services/services";
+import Contact from "./components/contact/contact";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,6 +18,7 @@ function App() {
         <AboutUs />
         <Skills />
         <Services />
+        <Contact />
       </main>
     </>
   );
