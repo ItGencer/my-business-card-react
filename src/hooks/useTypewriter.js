@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * @param {string} text
+ * @param {number} [speed=24]
+ * @returns {{ targetRef: import('react').MutableRefObject<HTMLHeadingElement | null>, displayedText: string }}
+ */
 export function useTypewriter(text, speed = 24) {
+  /** @type {import('react').MutableRefObject<HTMLHeadingElement | null>} */
   const targetRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
