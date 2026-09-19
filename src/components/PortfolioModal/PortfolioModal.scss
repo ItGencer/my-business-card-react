@@ -1,0 +1,214 @@
+.portfolio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 23, 42, 0.56);
+  backdrop-filter: blur(10px);
+}
+
+.portfolio-modal__dialog {
+  position: relative;
+  display: grid;
+  width: min(100%, 980px);
+  max-height: min(760px, calc(100vh - 36px));
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow);
+}
+
+.portfolio-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+  color: var(--text);
+  font-size: 1.7rem;
+  line-height: 1;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    outline: none;
+    transform: rotate(90deg);
+  }
+}
+
+.portfolio-modal__slider {
+  position: relative;
+  min-height: 320px;
+  padding: 18px;
+}
+
+.portfolio-modal__screen {
+  display: grid;
+  min-height: 300px;
+  align-content: end;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(14, 165, 233, 0.24), rgba(20, 184, 166, 0.1)),
+    repeating-linear-gradient(90deg, transparent 0 34px, rgba(255, 255, 255, 0.08) 34px 35px),
+    var(--bg-soft);
+  color: #ffffff;
+
+  span,
+  strong {
+    width: fit-content;
+    border-radius: var(--radius);
+    background: rgba(15, 23, 42, 0.72);
+  }
+
+  span {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  strong {
+    padding: 10px 12px;
+    font-size: clamp(1.45rem, 5vw, 2.4rem);
+    line-height: 1.1;
+  }
+}
+
+.portfolio-modal__screen--2 {
+  background:
+    linear-gradient(135deg, rgba(20, 184, 166, 0.26), rgba(14, 165, 233, 0.13)),
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(255, 255, 255, 0.08) 30px 31px),
+    var(--bg-soft);
+}
+
+.portfolio-modal__screen--3 {
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.26), rgba(14, 165, 233, 0.12)),
+    repeating-linear-gradient(45deg, transparent 0 30px, rgba(255, 255, 255, 0.08) 30px 31px),
+    var(--bg-soft);
+}
+
+.portfolio-modal__controls {
+  position: absolute;
+  inset: 50% 30px auto;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translateY(-50%);
+
+  button {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius);
+    background: rgba(15, 23, 42, 0.74);
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    pointer-events: auto;
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--accent-strong);
+      outline: none;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.portfolio-modal__dots {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  span {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.46);
+
+    &.is-active {
+      width: 28px;
+      background: #ffffff;
+    }
+  }
+}
+
+.portfolio-modal__content {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: 8px 24px 26px;
+
+  p,
+  h3,
+  span {
+    margin: 0;
+  }
+
+  p {
+    color: var(--accent-strong);
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  h3 {
+    font-size: clamp(1.7rem, 6vw, 3rem);
+    line-height: 1.08;
+  }
+
+  span {
+    color: var(--text-muted);
+  }
+}
+
+.portfolio-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  em {
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 800;
+  }
+}
+
+@media (min-width: 820px) {
+  .portfolio-modal__dialog {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .portfolio-modal__content {
+    padding: 48px 34px 34px 8px;
+  }
+}

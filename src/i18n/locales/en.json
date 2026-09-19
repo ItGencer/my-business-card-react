@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "Artem Hrishyn | Front-end Developer"
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contacts": "Contacts"
+  },
+  "actions": {
+    "menu": "Menu",
+    "close": "Close",
+    "switchTheme": "Switch theme",
+    "switchLanguage": "Switch language"
+  },
+  "hero": {
+    "eyebrow": "Front-end Developer",
+    "title": "I create fast, responsive websites that bring clients to your business",
+    "lead": "I build polished business-card websites and SPAs with clean structure, clear content, and Vercel-ready delivery.",
+    "primary": "View work",
+    "secondary": "Contact me",
+    "profileName": "Artem Hrishyn",
+    "profileRole": "React / TypeScript Developer",
+    "profileStatus": "Open to new projects",
+    "stats": [
+      { "value": "5", "label": "process steps" },
+      { "value": "100%", "label": "responsive approach" },
+      { "value": "UA / EN", "label": "bilingual content" }
+    ]
+  },
+  "about": {
+    "eyebrow": "Approach",
+    "title": "About",
+    "lead": "I create websites for entrepreneurs, local businesses, and personal brands that need a fast, neat, and clear online presence.",
+    "cards": [
+      {
+        "title": "SPAs and business-card sites",
+        "text": "One-page solutions with smooth navigation, thoughtful structure, and conversion-focused sections."
+      },
+      {
+        "title": "Clean markup",
+        "text": "HTML5, SCSS, JavaScript, TypeScript, and a component approach without unnecessary layers."
+      },
+      {
+        "title": "Mobile-First",
+        "text": "Comfort on smartphones first, then careful scaling for tablets and desktops."
+      },
+      {
+        "title": "Vercel-ready",
+        "text": "The project builds as a standard React app and is ready for quick deployment."
+      }
+    ],
+    "processTitle": "Work process",
+    "process": [
+      "Brief and task clarification",
+      "Page structure and content",
+      "Design system and responsive layout",
+      "Interactions, form, and state checks",
+      "Final review and launch preparation"
+    ],
+    "priceNote": "Transparent pricing: scope, timing, and cost are agreed before work starts."
+  },
+  "skills": {
+    "eyebrow": "Technologies",
+    "title": "Skills",
+    "lead": "Focused on modern front-end development, clean code, and interfaces that are easy to maintain.",
+    "items": ["HTML5 / CSS3", "SASS / SCSS", "JavaScript", "TypeScript", "Git / GitHub", "React / Angular", "BEM"]
+  },
+  "services": {
+    "eyebrow": "Work formats",
+    "title": "Services",
+    "lead": "Each package can be adjusted to the real scope of the business task.",
+    "note": "Prices are reduced while building the diploma portfolio.",
+    "items": [
+      {
+        "title": "Business-card website",
+        "price": "from 1,500 UAH",
+        "text": "A compact page for presenting services, contact details, and a strong first impression."
+      },
+      {
+        "title": "One-page website (SPA)",
+        "price": "from 2,500 UAH",
+        "text": "A complete section structure with animations, portfolio, prices, and a quick contact path."
+      },
+      {
+        "title": "Custom project",
+        "price": "from 3,500 UAH",
+        "text": "Custom logic, extended components, integrations, and a dedicated structure."
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Selected work",
+    "title": "Portfolio",
+    "lead": "The gallery shows formats that can be quickly adapted for a business, specialist, or local service.",
+    "openProject": "Open project",
+    "visitProject": "Visit website",
+    "close": "Close modal",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "slide": "Slide",
+    "items": [
+      {
+        "title": "Business Landing",
+        "category": "Business-card website",
+        "description": "A restrained service presentation with a strong first screen, trust blocks, and a contact action.",
+        "url": "https://example.com",
+        "tags": ["React", "SCSS", "Vercel"],
+        "screens": ["First screen", "Services block", "Request form"]
+      },
+      {
+        "title": "Service SPA",
+        "category": "One-page website",
+        "description": "A responsive SPA structure for small businesses with portfolio, pricing, and quick contact.",
+        "url": "https://example.com",
+        "tags": ["TypeScript", "i18next", "EmailJS"],
+        "screens": ["Navigation", "Portfolio", "Contacts"]
+      },
+      {
+        "title": "Personal Portfolio",
+        "category": "Personal brand",
+        "description": "A concise specialist website focused on skills, cases, and direct contact channels.",
+        "url": "https://example.com",
+        "tags": ["Motion", "Mobile-First", "BEM"],
+        "screens": ["Profile", "Skills", "Cases"]
+      }
+    ]
+  },
+  "contacts": {
+    "eyebrow": "Contact",
+    "title": "Contacts",
+    "lead": "Describe the task, and I will come back with questions about timing, structure, and cost.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "name@example.com",
+    "messagePlaceholder": "Briefly describe the website or task",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Message sent. Thank you!",
+    "error": "The message could not be sent. Please try again.",
+    "configError": "Add EmailJS keys to environment variables first.",
+    "reset": "Reset form",
+    "validation": {
+      "name": "Enter a name with at least 2 characters.",
+      "email": "Enter a valid email.",
+      "message": "Describe the task in at least 12 characters."
+    },
+    "links": [
+      { "label": "Phone", "value": "+380 00 000 00 00", "href": "tel:+380000000000" },
+      { "label": "Telegram", "value": "@artem_hrishyn", "href": "https://t.me/artem_hrishyn" },
+      { "label": "Email", "value": "artem.hrishyn@example.com", "href": "mailto:artem.hrishyn@example.com" },
+      { "label": "LinkedIn", "value": "Artem Hrishyn", "href": "https://www.linkedin.com/in/artem-hrishyn" },
+      { "label": "TikTok", "value": "@artem.hrishyn", "href": "https://www.tiktok.com/@artem.hrishyn" }
+    ]
+  },
+  "footer": {
+    "rights": "© 2026 Artem Hrishyn. All rights reserved."
+  }
+}
