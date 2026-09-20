@@ -44,7 +44,7 @@ export default function Hero() {
             <div className="portrait-monogram">
               <span>A</span>
               <span>H</span>
-            </div>
+            </div> 
             <div className="code-chip chip-one">React + TS</div>
             <div className="code-chip chip-two">Mobile First</div>
           </div>

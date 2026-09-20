@@ -107,7 +107,7 @@ img {
 }
 
 .section {
-  padding: 56px 0;
+  margin-top: 25px;
   scroll-margin-top: calc(var(--header-height) + 20px);
 
   &__eyebrow {
@@ -115,7 +115,6 @@ img {
     color: var(--accent-strong);
     font-size: 0.86rem;
     font-weight: 700;
-    letter-spacing: 0;
     text-transform: uppercase;
   }
   &__title {
@@ -162,14 +161,12 @@ img {
 
   &--primary {
     background: linear-gradient(135deg, var(--accent), var(--teal));
-    color: #ffffff;
     box-shadow: 0 14px 34px rgba(14, 165, 233, 0.24);
   }
 
   &--ghost {
     border-color: var(--border);
     background: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
-    color: var(--text);
   }
 }
 
