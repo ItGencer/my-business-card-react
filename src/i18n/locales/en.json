@@ -76,17 +76,17 @@
     "items": [
       {
         "title": "Business-card website",
-        "price": "from 1,500 UAH",
+        "price": "from 500 UAH",
         "text": "A compact page for presenting services, contact details, and a strong first impression."
       },
       {
         "title": "One-page website (SPA)",
-        "price": "from 2,500 UAH",
+        "price": "from 500 UAH",
         "text": "A complete section structure with animations, portfolio, prices, and a quick contact path."
       },
       {
         "title": "Custom project",
-        "price": "from 3,500 UAH",
+        "price": "from 500 UAH",
         "text": "Custom logic, extended components, integrations, and a dedicated structure."
       }
     ]
@@ -103,28 +103,56 @@
     "slide": "Slide",
     "items": [
       {
-        "title": "Business Landing",
-        "category": "Business-card website",
-        "description": "A restrained service presentation with a strong first screen, trust blocks, and a contact action.",
-        "url": "https://example.com",
-        "tags": ["React", "SCSS", "Vercel"],
-        "screens": ["First screen", "Services block", "Request form"]
+        "title": "PeakFit",
+        "category": "Fitness",
+        "description": "Discipline makes champions.",
+        "url": "https://peak-fit-fitnes-template.vercel.app/",
+        "tags": ["Webpack", "SCSS", "Vercel"],
+        "screens": [
+          "assets/PeakFit screen/PeakFit-1.png",
+          "assets/PeakFit screen/PeakFit-2.png",
+          "assets/PeakFit screen/PeakFit-3.png",
+          "assets/PeakFit screen/PeakFit-4.png"
+        ]
       },
       {
-        "title": "Service SPA",
-        "category": "One-page website",
-        "description": "A responsive SPA structure for small businesses with portfolio, pricing, and quick contact.",
-        "url": "https://example.com",
-        "tags": ["TypeScript", "i18next", "EmailJS"],
-        "screens": ["Navigation", "Portfolio", "Contacts"]
+        "title": "Cocoon",
+        "category": "AI Consulting",
+        "description": "We find the problem. We build the fix. We prove it works.",
+        "url": "https://cocoontamplate.vercel.app/",
+        "tags": ["Webpack", "SCSS", "Vercel"],
+        "screens": [
+          "assets/Cocoon/Cocoon-1.png",
+          "assets/Cocoon/Cocoon-2.png",
+          "assets/Cocoon/Cocoon-3.png",
+          "assets/Cocoon/Cocoon-4.png"
+        ]
       },
       {
-        "title": "Personal Portfolio",
-        "category": "Personal brand",
-        "description": "A concise specialist website focused on skills, cases, and direct contact channels.",
-        "url": "https://example.com",
-        "tags": ["Motion", "Mobile-First", "BEM"],
-        "screens": ["Profile", "Skills", "Cases"]
+        "title": "Surfing",
+        "category": "Surfing",
+        "description": "Whether you're a beginner or chasing barrels, we've got the perfect wave for you.",
+        "url": "https://surfing-template.vercel.app/",
+        "tags": ["Webpack", "SCSS", "Vercel"],
+        "screens": [
+          "assets/Surfing/Surfing-1.png",
+          "assets/Surfing/Surfing-2.png",
+          "assets/Surfing/Surfing-3.png",
+          "assets/Surfing/Surfing-4.png"
+        ]
+      },
+      {
+        "title": "Awake",
+        "category": "Інноваційні рішення",
+        "description": "Building bold brands with thoughtful design",
+        "url": "https://awake-agency-gamma.vercel.app/",
+        "tags": ["Webpack", "SCSS", "Vercel"],
+        "screens": [
+          "assets/Awake/Awake-1.png",
+          "assets/Awake/Awake-2.png",
+          "assets/Awake/Awake-3.png",
+          "assets/Awake/Awake-4.png"
+        ]
       }
     ]
   },
@@ -150,11 +178,11 @@
       "message": "Describe the task in at least 12 characters."
     },
     "links": [
-      { "label": "Phone", "value": "+380 00 000 00 00", "href": "tel:+380000000000" },
-      { "label": "Telegram", "value": "@artem_hrishyn", "href": "https://t.me/artem_hrishyn" },
-      { "label": "Email", "value": "artem.hrishyn@example.com", "href": "mailto:artem.hrishyn@example.com" },
-      { "label": "LinkedIn", "value": "Artem Hrishyn", "href": "https://www.linkedin.com/in/artem-hrishyn" },
-      { "label": "TikTok", "value": "@artem.hrishyn", "href": "https://www.tiktok.com/@artem.hrishyn" }
+      { "label": "Phone", "value": "+380 93 647 04 24", "href": "tel:+380000000000" },
+      { "label": "Telegram", "value": "@gencerIT", "href": "https://t.me/gencerIT" },
+      { "label": "Email", "value": "gencer.it.1989@gmail.com", "href": "mailto:gencer.it.1989@gmail.com" },
+      { "label": "LinkedIn", "value": "Artem Hrishyn", "href": "https://www.linkedin.com/in/artem-hrishin-486204421/" },
+      { "label": "TikTok", "value": "@gencerit", "href": "https://www.tiktok.com/@gencerit" }
     ]
   },
   "footer": {

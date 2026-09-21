@@ -17,6 +17,7 @@
     "react-i18next": "^17.0.14"
   },
   "devDependencies": {
+    "@types/react": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "sass": "^1.104.1",
     "typescript": "^7.0.2",

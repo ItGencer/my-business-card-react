@@ -5,7 +5,8 @@ import { useTypewriter } from '../../hooks/useTypewriter.js';
 
 export default function Contacts() {
   const { t } = useTranslation();
-  const links = t('contacts.links', { returnObjects: true });
+  const translatedLinks = t('contacts.links', { returnObjects: true });
+  const links = Array.isArray(translatedLinks) ? translatedLinks : [];
   const { targetRef, displayedText } = useTypewriter(t('contacts.title'));
   const form = useContactForm({
     name: t('contacts.validation.name'),
@@ -76,7 +77,7 @@ export default function Contacts() {
             <span>{t('contacts.message')}</span>
             <textarea
               name="message"
-              rows="5"
+              rows={5}
               value={form.fields.message}
               placeholder={t('contacts.messagePlaceholder')}
               onChange={form.handleChange}

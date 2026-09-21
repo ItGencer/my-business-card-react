@@ -1,6 +1,42 @@
 import { useMemo, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+/**
+ * @typedef {Object} ContactFormFields
+ * @property {string} name
+ * @property {string} email
+ * @property {string} message
+ */
+
+/**
+ * @typedef {Object} ContactFormMessages
+ * @property {string} name
+ * @property {string} email
+ * @property {string} message
+ * @property {string} success
+ * @property {string} error
+ * @property {string} configError
+ */
+
+/**
+ * @typedef {Object} FormErrors
+ * @property {string|undefined} [name]
+ * @property {string|undefined} [email]
+ * @property {string|undefined} [message]
+ */
+
+/**
+ * @typedef {Object} EmailConfig
+ * @property {string|undefined} serviceId
+ * @property {string|undefined} templateId
+ * @property {string|undefined} publicKey
+ */
+
+/** @typedef {'idle' | 'validating' | 'invalid' | 'sending' | 'success' | 'error'} FormStatusValue */
+
+/**
+ * @type {ContactFormFields}
+ */
 const initialFields = {
   name: '',
   email: '',
@@ -18,12 +54,25 @@ export const formStatus = {
   error: 'error',
 };
 
+/**
+ * @param {ContactFormMessages} messages
+ * @returns {{
+ *   fields: ContactFormFields,
+ *   errors: FormErrors,
+ *   status: FormStatusValue,
+ *   serverMessage: string,
+ *   handleChange: (event: { target: { name: string, value: string } }) => void,
+ *   handleSubmit: (event: { preventDefault: () => void }) => Promise<void>,
+ *   resetForm: () => void,
+ * }}
+ */
 export function useContactForm(messages) {
   const [fields, setFields] = useState(initialFields);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(formStatus.idle);
+  const [status, setStatus] = useState(/** @type {FormStatusValue} */ (formStatus.idle));
   const [serverMessage, setServerMessage] = useState('');
 
+  /** @type {EmailConfig} */
   const emailConfig = useMemo(
     () => ({
       serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -33,6 +82,10 @@ export function useContactForm(messages) {
     [],
   );
 
+  /**
+   * @param {ContactFormFields} currentFields
+   * @returns {FormErrors}
+   */
   const validate = (currentFields) => {
     const nextErrors = {};
 
@@ -51,6 +104,9 @@ export function useContactForm(messages) {
     return nextErrors;
   };
 
+  /**
+   * @param {{ target: { name: string, value: string } }} event
+   */
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -71,24 +127,28 @@ export function useContactForm(messages) {
     setFields(initialFields);
     setErrors({});
     setServerMessage('');
-    setStatus(formStatus.idle);
+    setStatus(/** @type {FormStatusValue} */ (formStatus.idle));
   };
 
+  /**
+   * @param {{ preventDefault: () => void }} event
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setStatus(formStatus.validating);
+    setStatus(/** @type {FormStatusValue} */ (formStatus.validating));
     setServerMessage('');
 
     const validationErrors = validate(fields);
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      setStatus(formStatus.invalid);
+      setStatus(/** @type {FormStatusValue} */ (formStatus.invalid));
       return;
     }
 
     setErrors({});
-    setStatus(formStatus.sending);
+    setStatus(/** @type {FormStatusValue} */ (formStatus.sending));
 
     try {
       if (!emailConfig.serviceId || !emailConfig.templateId || !emailConfig.publicKey) {
@@ -106,12 +166,14 @@ export function useContactForm(messages) {
         { publicKey: emailConfig.publicKey },
       );
 
-      setStatus(formStatus.success);
+      setStatus(/** @type {FormStatusValue} */ (formStatus.success));
       setServerMessage(messages.success);
       setFields(initialFields);
     } catch (error) {
-      setStatus(formStatus.error);
-      setServerMessage(error.message === 'missing-emailjs-config' ? messages.configError : messages.error);
+      const errorMessage = error instanceof Error ? error.message : 'unknown-error';
+
+      setStatus(/** @type {FormStatusValue} */ (formStatus.error));
+      setServerMessage(errorMessage === 'missing-emailjs-config' ? messages.configError : messages.error);
     }
   };
 

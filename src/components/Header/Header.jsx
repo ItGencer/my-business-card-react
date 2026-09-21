@@ -16,6 +16,9 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    /**
+     * @param {{ key: string }} event
+     */
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
         setIsMenuOpen(false);

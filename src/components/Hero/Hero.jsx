@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTypewriter } from '../../hooks/useTypewriter.js';
+import profilePhoto from '../../assets/my-foto.png';
 
 export default function Hero() {
   const { t } = useTranslation();
   const { targetRef, displayedText } = useTypewriter(t('hero.title'), 18);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <section className="hero section" id="top">
@@ -33,21 +36,16 @@ export default function Hero() {
 
         <motion.div
           className="hero-visual"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 24, rotateX: 0 }}
+          animate={{ opacity: 1, y: 0, rotateX: hovered ? -12 : 0 }}
           transition={{ delay: 0.15, duration: 0.55, ease: 'easeOut' }}
+          onHoverStart={() => setHovered(true)}
+          onHoverEnd={() => setHovered(false)}
           aria-label={t('hero.profileName')}
         >
-          <div className="portrait-frame" aria-hidden="true">
-            <div className="portrait-orbit orbit-one" />
-            <div className="portrait-orbit orbit-two" />
-            <div className="portrait-monogram">
-              <span>A</span>
-              <span>H</span>
-            </div>
+            <img className="portrait-photo" src={profilePhoto} alt={t('hero.profileName')} />
             <div className="code-chip chip-one">React + TS</div>
             <div className="code-chip chip-two">Mobile First</div>
-          </div>
         </motion.div>
       </div>
     </section>

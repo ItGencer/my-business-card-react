@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 export default function PortfolioModal({ project, onClose }) {
   const { t } = useTranslation();
+  const screens = Array.isArray(project.screens) ? project.screens : [];
+  const totalSlides = Math.max(screens.length, 1);
   const [activeSlide, setActiveSlide] = useState(0);
-  const totalSlides = project.screens.length;
+  const activeScreen = screens[activeSlide] || null;
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -50,27 +52,30 @@ export default function PortfolioModal({ project, onClose }) {
     <div className="portfolio-modal" role="presentation" onMouseDown={handleOverlayClick}>
       <section className="portfolio-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title">
         <button className="portfolio-modal__close" type="button" onClick={onClose} aria-label={t('portfolio.close')}>
-          ×
+          &times;
         </button>
 
         <div className="portfolio-modal__slider">
-          <div className={`portfolio-modal__screen portfolio-modal__screen--${project.index + 1}`}>
-            <span>
+          <div className={`portfolio-modal__screen ${activeScreen?.src ? 'has-image' : ''}`}>
+            {activeScreen?.src ? <img src={activeScreen.src} alt={activeScreen.alt} /> : null}
+            <span className="portfolio-modal__counter">
               {t('portfolio.slide')} {activeSlide + 1} / {totalSlides}
             </span>
-            <strong>{project.screens[activeSlide]}</strong>
+            {activeScreen?.label ? <strong>{activeScreen.label}</strong> : null}
           </div>
+
           <div className="portfolio-modal__controls">
             <button type="button" onClick={goToPreviousSlide} aria-label={t('portfolio.previous')}>
-              ‹
+              &lsaquo;
             </button>
             <button type="button" onClick={goToNextSlide} aria-label={t('portfolio.next')}>
-              ›
+              &rsaquo;
             </button>
           </div>
+
           <div className="portfolio-modal__dots" aria-hidden="true">
-            {project.screens.map((screen, index) => (
-              <span className={index === activeSlide ? 'is-active' : ''} key={screen} />
+            {screens.map((screen, index) => (
+              <span className={index === activeSlide ? 'is-active' : ''} key={screen.src || screen.label || index} />
             ))}
           </div>
         </div>
@@ -79,11 +84,13 @@ export default function PortfolioModal({ project, onClose }) {
           <p>{project.category}</p>
           <h3 id="portfolio-modal-title">{project.title}</h3>
           <span>{project.description}</span>
+
           <div className="portfolio-modal__tags">
-            {project.tags.map((tag) => (
+            {(Array.isArray(project.tags) ? project.tags : []).map((tag) => (
               <em key={tag}>{tag}</em>
             ))}
           </div>
+
           <a className="button button--primary" href={project.url} target="_blank" rel="noreferrer">
             {t('portfolio.visitProject')}
           </a>
