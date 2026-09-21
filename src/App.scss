@@ -26,7 +26,7 @@
   --shadow: 0 20px 60px rgba(15, 23, 42, 0.11);
   --shadow-soft: 0 14px 36px rgba(15, 23, 42, 0.08);
   --radius: 8px;
-  --container: 1120px;
+  --container: 2450px;
   --header-height: 68px;
 }
 
@@ -58,7 +58,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   background:
     radial-gradient(circle at 12% 8%, var(--accent-soft), transparent 30rem),
     radial-gradient(
@@ -113,7 +112,7 @@ img {
   &__eyebrow {
     margin: 0 0 12px;
     color: var(--accent-strong);
-    font-size: 0.86rem;
+    font-size: clamp(12px, 3vw, 45px);
     font-weight: 700;
     text-transform: uppercase;
   }

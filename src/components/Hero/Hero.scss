@@ -10,15 +10,16 @@
 
   &__title {
     text-wrap: balance;
-    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    font-size: clamp(30px, 4vw, 110px);
     line-height: 1.04;
   }
 
   &__lead {
     margin-top: 16px;
     color: var(--text-muted);
-    font-size: clamp(0.98rem, 3.6vw, 1.08rem);
+    font-size: clamp(14px, 3vw, 45px);
   }
+
   &__cursor {
     display: inline-block;
     width: 0.08em;
@@ -34,6 +35,11 @@
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 22px;
+
+    a{
+
+    font-size: clamp(14px, 3vw, 45px);
+    }
   }
 
   &__content {
@@ -106,5 +112,11 @@
 @keyframes chipFloat {
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .hero__grid {
+    grid-template-columns: 3fr 2fr;
   }
 }
