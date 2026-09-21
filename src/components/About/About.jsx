@@ -4,8 +4,10 @@ import { useTypewriter } from '../../hooks/useTypewriter.js';
 
 export default function About() {
   const { t } = useTranslation();
-  const cards = t('about.cards', { returnObjects: true });
-  const steps = t('about.process', { returnObjects: true });
+  const translatedCards = t('about.cards', { returnObjects: true });
+  const translatedSteps = t('about.process', { returnObjects: true });
+  const cards = Array.isArray(translatedCards) ? translatedCards : [];
+  const steps = Array.isArray(translatedSteps) ? translatedSteps : [];
   const { targetRef, displayedText } = useTypewriter(t('about.title'));
 
   return (

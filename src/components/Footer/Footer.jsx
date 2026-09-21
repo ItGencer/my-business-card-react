@@ -4,8 +4,8 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="site-footer">
-      <div className="container site-footer__inner">
+    <footer className="footer">
+      <div className="container footer__inner">
         <a href="#top" aria-label="Artem Hrishyn">
           AH
         </a>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTypewriter } from '../../hooks/useTypewriter.js';
-import profilePhoto from '../../assets/my-foto.jpg';
+import profilePhoto from '../../assets/my-foto.png';
 
 export default function Hero() {
   const { t } = useTranslation();

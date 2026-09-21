@@ -1,8 +1,17 @@
-.services__grid {
-  display: grid;
-  gap: 16px;
-  margin-top: 36px;
-  perspective: 1100px;
+.services {
+  &__grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 36px;
+    perspective: 1100px;
+  }
+
+  &__note {
+    margin: 22px 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
 }
 
 .service-card {
@@ -13,7 +22,11 @@
   border-radius: var(--radius);
   padding: 24px;
   background:
-    linear-gradient(145deg, var(--bg-elevated), color-mix(in srgb, var(--bg-elevated) 78%, var(--accent-soft))),
+    linear-gradient(
+      145deg,
+      var(--bg-elevated),
+      color-mix(in srgb, var(--bg-elevated) 78%, var(--accent-soft))
+    ),
     var(--bg-elevated);
   box-shadow: var(--shadow-soft);
   transform-style: preserve-3d;
@@ -23,7 +36,7 @@
     border-color 0.3s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: auto -20% -34% auto;
     width: 190px;
@@ -69,26 +82,13 @@
     margin: 18px 0 0;
     color: var(--text-muted);
   }
-}
 
-.service-card__number {
-  position: absolute;
-  top: 18px;
-  left: 22px;
-  color: color-mix(in srgb, var(--accent) 72%, var(--text));
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.services__note {
-  margin: 22px 0 0;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-@media (min-width: 840px) {
-  .services__grid {
-    grid-template-columns: repeat(3, 1fr);
+  &__number {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    color: color-mix(in srgb, var(--accent) 72%, var(--text));
+    font-size: 0.9rem;
+    font-weight: 800;
   }
 }

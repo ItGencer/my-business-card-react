@@ -4,7 +4,8 @@ import { useTypewriter } from '../../hooks/useTypewriter.js';
 
 export default function Services() {
   const { t } = useTranslation();
-  const services = t('services.items', { returnObjects: true });
+  const translatedServices = t('services.items', { returnObjects: true });
+  const services = Array.isArray(translatedServices) ? translatedServices : [];
   const { targetRef, displayedText } = useTypewriter(t('services.title'));
 
   return (

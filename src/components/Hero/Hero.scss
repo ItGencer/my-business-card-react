@@ -29,7 +29,6 @@
     vertical-align: -0.08em;
   }
 
-
   &__actions {
     display: flex;
     flex-wrap: wrap;
@@ -44,22 +43,26 @@
 
 .hero-visual {
   width: 100%;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   transform-style: preserve-3d;
+
+  &:hover .portrait-photo {
+    filter: saturate(1) contrast(1.06);
+    transform: scale(1.025);
+  }
 }
 
 .portrait-photo {
   inset: 22%;
   object-fit: cover;
   border-radius: 50%;
-  mask-image: radial-gradient(ellipse 72% 72% at 50% 48%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(
+    ellipse 72% 72% at 50% 48%,
+    #000 52%,
+    transparent 100%
+  );
   width: 80%;
-}
-
-.hero-visual:hover .portrait-photo {
-  filter: saturate(1) contrast(1.06);
-  transform: scale(1.025);
 }
 
 .code-chip {

@@ -4,7 +4,8 @@ import { useTypewriter } from '../../hooks/useTypewriter.js';
 
 export default function Skills() {
   const { t } = useTranslation();
-  const skills = t('skills.items', { returnObjects: true });
+  const translatedSkills = t('skills.items', { returnObjects: true });
+  const skills = Array.isArray(translatedSkills) ? translatedSkills : [];
   const { targetRef, displayedText } = useTypewriter(t('skills.title'));
 
   return (
