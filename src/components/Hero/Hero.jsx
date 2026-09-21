@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTypewriter } from '../../hooks/useTypewriter.js';
-import profilePhoto from '../../assets/my-foto.jpeg';
+import profilePhoto from '../../assets/my-foto.jpg';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -43,24 +43,9 @@ export default function Hero() {
           onHoverEnd={() => setHovered(false)}
           aria-label={t('hero.profileName')}
         >
-          <div className="portrait-frame" aria-hidden="true">
-            <div className="portrait-orbit orbit-one" />
-            <div className="portrait-orbit orbit-two" />
-            <motion.img
-              src={profilePhoto}
-              alt={t('hero.profileName')}
-              className="portrait-photo"
-              initial={{ opacity: 0, rotateX: -90 }}
-              animate={hovered ? { opacity: 1, rotateX: 0 } : { opacity: 0, rotateX: -90 }}
-              transition={{ duration: 0.45, ease: 'easeOut' }}
-            />
-            <div className="portrait-monogram" style={{ opacity: hovered ? 0 : 1 }}>
-              <span>A</span>
-              <span>H</span>
-            </div>
+            <img className="portrait-photo" src={profilePhoto} alt={t('hero.profileName')} />
             <div className="code-chip chip-one">React + TS</div>
             <div className="code-chip chip-two">Mobile First</div>
-          </div>
         </motion.div>
       </div>
     </section>
