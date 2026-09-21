@@ -170,7 +170,7 @@
     "sending": "Sending...",
     "success": "Message sent. Thank you!",
     "error": "The message could not be sent. Please try again.",
-    "configError": "Add EmailJS keys to environment variables first.",
+    "configError": "EmailJS is not configured. Please try again later.",
     "reset": "Reset form",
     "validation": {
       "name": "Enter a name with at least 2 characters.",

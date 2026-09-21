@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs.js';
 
 /**
  * @typedef {Object} ContactFormFields
@@ -30,6 +31,7 @@ import emailjs from '@emailjs/browser';
  * @property {string|undefined} serviceId
  * @property {string|undefined} templateId
  * @property {string|undefined} publicKey
+ * @property {string|undefined} toEmail
  */
 
 /** @typedef {'idle' | 'validating' | 'invalid' | 'sending' | 'success' | 'error'} FormStatusValue */
@@ -74,11 +76,7 @@ export function useContactForm(messages) {
 
   /** @type {EmailConfig} */
   const emailConfig = useMemo(
-    () => ({
-      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    }),
+    () => EMAILJS_CONFIG,
     [],
   );
 
@@ -162,6 +160,7 @@ export function useContactForm(messages) {
           from_name: fields.name.trim(),
           reply_to: fields.email.trim(),
           message: fields.message.trim(),
+          to_email: emailConfig.toEmail,
         },
         { publicKey: emailConfig.publicKey },
       );
