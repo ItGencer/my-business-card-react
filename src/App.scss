@@ -26,6 +26,10 @@
   --shadow: 0 20px 60px rgba(15, 23, 42, 0.11);
   --shadow-soft: 0 14px 36px rgba(15, 23, 42, 0.08);
   --radius: 8px;
+<<<<<<< HEAD
+=======
+  --container: 2450px;
+>>>>>>> 1e944fd985b7bc70d70c7811230efe7efe0c771c
   --header-height: 68px;
   --textFontSize: clamp(14px, 2vw, 28px);
 }
@@ -58,7 +62,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   background:
     radial-gradient(circle at 12% 8%, var(--accent-soft), transparent 30rem),
     radial-gradient(
@@ -113,7 +116,11 @@ img {
   &__eyebrow {
     margin: 0 0 12px;
     color: var(--accent-strong);
+<<<<<<< HEAD
     font-size: var(--textFontSize);
+=======
+    font-size: clamp(12px, 3vw, 45px);
+>>>>>>> 1e944fd985b7bc70d70c7811230efe7efe0c771c
     font-weight: 700;
     text-transform: uppercase;
   }
