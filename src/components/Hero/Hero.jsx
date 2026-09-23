@@ -13,18 +13,18 @@ export default function Hero() {
     <section className="hero section" id="top">
       <div className="container hero__grid">
         <motion.div
-          className="hero__content"
+          className="hero__grid__content"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
           <p className="section__eyebrow">{t('hero.eyebrow')}</p>
-          <h1 ref={targetRef} className="hero__title">
+          <h1 ref={targetRef} className="hero__grid__content__title">
             {displayedText}
             <span aria-hidden="true" className="hero__cursor" />
           </h1>
-          <p className="hero__lead">{t('hero.lead')}</p>
-          <div className="hero__actions">
+          <p className="hero__grid__content__lead">{t('hero.lead')}</p>
+          <div className="hero__grid__content__actions">
             <a className="button button--primary" href="#portfolio">
               {t('hero.primary')}
             </a>

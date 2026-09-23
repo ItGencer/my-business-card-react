@@ -26,8 +26,8 @@
   --shadow: 0 20px 60px rgba(15, 23, 42, 0.11);
   --shadow-soft: 0 14px 36px rgba(15, 23, 42, 0.08);
   --radius: 8px;
-  --container: 1120px;
   --header-height: 68px;
+  --textFontSize: clamp(14px, 2vw, 28px);
 }
 
 :root[data-theme="dark"] {
@@ -102,8 +102,8 @@ img {
 }
 
 .container {
-  width: min(calc(100% - 28px), var(--container));
   margin-inline: auto;
+  width: clamp(310px, 92vw , 2500px);
 }
 
 .section {
@@ -113,7 +113,7 @@ img {
   &__eyebrow {
     margin: 0 0 12px;
     color: var(--accent-strong);
-    font-size: 0.86rem;
+    font-size: var(--textFontSize);
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -138,6 +138,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: clamp(15px, 1.5vw , 30px);
   min-height: 48px;
   border: 1px solid transparent;
   border-radius: var(--radius);
