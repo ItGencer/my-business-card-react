@@ -12,37 +12,40 @@
       justify-content: space-between;
       flex-direction: column;
 
-  &__title {
-    text-wrap: balance;
-    font-size: clamp(1.9rem, 8vw, 2.35rem);
-    line-height: 1.04;
-  }
+      &__title {
+        text-wrap: balance;
+        font-size: clamp(1.9rem, 8vw, 2.35rem);
+        line-height: 1.04;
+      }
 
-  &__lead {
-    margin-top: 16px;
-    color: var(--text-muted);
-    font-size: clamp(0.98rem, 3.6vw, 1.08rem);
-  }
-  &__cursor {
-    display: inline-block;
-    width: 0.08em;
-    height: 0.78em;
-    margin-left: 0.08em;
-    background: var(--accent);
-    animation: cursorBlink 0.85s steps(2, start) infinite;
-    vertical-align: -0.08em;
-  }
+      &__lead {
+        margin-top: 16px;
+        color: var(--text-muted);
+        font-size: clamp(0.98rem, 3.6vw, 1.08rem);
+      }
 
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 22px;
-  }
+      &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+    }
 
-  &__content {
-    min-width: 0;
+    &__content {
+      min-width: 0;
+    }
   }
+}
+
+.hero__cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.78em;
+  margin-left: 0.08em;
+  background: var(--accent);
+  animation: cursorBlink 0.85s steps(2, start) infinite;
+  vertical-align: -0.08em;
 }
 
 .hero-visual {
@@ -110,5 +113,73 @@
 @keyframes chipFloat {
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr);
+    gap: 32px;
+  }
+
+  .hero-visual {
+    width: 340px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__grid {
+    gap: 44px;
+  }
+
+  .hero__grid__content__title {
+    font-size: clamp(2.35rem, 5vw, 4rem);
+  }
+
+  .hero__grid__content__lead {
+    max-width: 640px;
+    font-size: clamp(1.08rem, 2vw, 1.3rem);
+  }
+
+  .hero-visual {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  
+  .hero__grid {
+    grid-template-columns: minmax(0, 3fr) minmax(360px, 2fr);
+    gap: 56px;
+
+    &__content__title {
+    font-size: clamp(2.75rem, 4vw, 4rem);
+  }
+
+  }
+  
+  .hero-visual {
+    width: 460px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__grid {
+    gap: 72px;
+    
+    &__content__lead {
+    max-width: 720px;
+  }
+  }
+  
+  .hero-visual {
+    width: 580px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  
+  .hero-visual {
+    width: 700px;
   }
 }
