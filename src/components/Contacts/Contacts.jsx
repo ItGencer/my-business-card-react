@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { formStatus, useContactForm } from "../../hooks/useContactForm.js";
 import { useTypewriter } from "../../hooks/useTypewriter.js";
@@ -20,13 +19,9 @@ export default function Contacts() {
   const isSending = form.status === formStatus.sending;
 
   return (
-    <motion.section
+    <section
       id="contacts"
       className="contacts section"
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="container contacts__grid">
         <p className="section__eyebrow">{t("contacts.eyebrow")}</p>
@@ -120,6 +115,6 @@ export default function Contacts() {
           </form>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

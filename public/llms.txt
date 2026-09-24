@@ -1,0 +1,20 @@
+# Artem Hrishyn | Front-end Developer
+
+## About
+Artem Hrishyn creates fast, responsive business-card websites and React SPAs for entrepreneurs, local businesses, and personal brands.
+
+## Website
+- [Home](./)
+- [About](./#about)
+- [Skills](./#skills)
+- [Services](./#services)
+- [Portfolio](./#portfolio)
+- [Contacts](./#contacts)
+
+## Services
+- Responsive business-card websites
+- React single-page applications
+- Clean HTML, SCSS, JavaScript, and TypeScript interfaces
+
+## Contact
+- [Contact page](./#contacts)

@@ -21,12 +21,22 @@
   }
 
   &__grid__content__title {
+    position: relative;
     max-width: 100%;
     font-size: 1.78rem;
     line-height: 1.08;
     letter-spacing: 0;
     text-wrap: balance;
     overflow-wrap: break-word;
+
+    &__measure {
+      visibility: hidden;
+    }
+
+    &__typed {
+      position: absolute;
+      inset: 0;
+    }
   }
 
   &__grid__content__lead {
