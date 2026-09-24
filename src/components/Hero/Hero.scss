@@ -227,11 +227,7 @@
   .hero__grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
   }
-
-  .hero__grid__content__title {
-    font-size: 4.65rem;
-  }
-
+  
   .hero__grid__content__lead {
     font-size: 1.34rem;
   }
@@ -250,11 +246,7 @@
   .hero__grid {
     gap: 96px;
   }
-
-  .hero__grid__content__title {
-    font-size: 5.35rem;
-  }
-
+  
   .hero__grid__content__lead {
     max-width: 900px;
     font-size: 1.5rem;
