@@ -2,20 +2,24 @@
   &__inner {
     display: grid;
     gap: 30px;
+    min-width: 0;
   }
 
   &__cloud {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    min-width: 0;
 
     span {
+      max-width: 100%;
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 12px 16px;
       background: var(--bg-elevated);
       color: var(--text);
       font-weight: 800;
+      overflow-wrap: break-word;
       box-shadow: var(--shadow-soft);
       transition:
         transform 0.3s ease,
@@ -27,6 +31,17 @@
         color: var(--accent-strong);
         transform: translateY(-3px);
       }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .skills__cloud {
+    gap: 12px;
+
+    span {
+      padding: 13px 18px;
     }
   }
 }

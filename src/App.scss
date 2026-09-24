@@ -26,8 +26,14 @@
   --shadow: 0 20px 60px rgba(15, 23, 42, 0.11);
   --shadow-soft: 0 14px 36px rgba(15, 23, 42, 0.08);
   --radius: 8px;
-  --header-height: 68px;
-  --textFontSize: clamp(14px, 2vw, 28px);
+  --header-height: 64px;
+  --container-gutter: 16px;
+  --container-max: 100%;
+  --section-gap: 42px;
+  --eyebrow-size: 0.8rem;
+  --section-title-size: 2rem;
+  --section-lead-size: 1rem;
+  --button-text-size: 0.98rem;
 }
 
 :root[data-theme="dark"] {
@@ -53,10 +59,15 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   background:
     radial-gradient(circle at 12% 8%, var(--accent-soft), transparent 30rem),
@@ -70,9 +81,16 @@ body {
   font-family: var(--font-main);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
   transition:
     background 0.3s ease,
     color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 button,
@@ -93,27 +111,37 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .app-shell {
-  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main,
+footer,
+section {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
 .container {
-  margin-inline: auto;
-  width: clamp(310px, 92vw , 2500px);
-}
+  max-width: calc(100% - (var(--container-gutter) * 2));
+  margin-inline: auto;}
 
 .section {
-  margin-top: 45px;
+  margin-top: var(--section-gap);
   scroll-margin-top: calc(var(--header-height) + 20px);
 
   &__eyebrow {
     margin: 0 0 12px;
     color: var(--accent-strong);
-    font-size: var(--textFontSize);
+    font-size: var(--eyebrow-size);
     font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
@@ -121,16 +149,17 @@ img {
     min-height: 2.8rem;
     margin: 0;
     color: var(--text);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: var(--section-title-size);
     line-height: 1.08;
     letter-spacing: 0;
+    overflow-wrap: break-word;
   }
 
   &__lead {
     max-width: 680px;
     margin: 18px 0 0;
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: var(--section-lead-size);
   }
 }
 
@@ -138,12 +167,15 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(15px, 1.5vw , 30px);
+  max-width: 100%;
   min-height: 48px;
   border: 1px solid transparent;
   border-radius: var(--radius);
   padding: 0 20px;
+  font-size: var(--button-text-size);
   font-weight: 700;
+  text-align: center;
+  white-space: normal;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -177,6 +209,63 @@ img {
   background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(16px);
+}
+
+@media screen and (min-width: 480px) {
+  :root {
+    --container-gutter: 24px;
+    --section-title-size: 2.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --header-height: 72px;
+    --container-gutter: 32px;
+    --section-gap: 58px;
+    --section-title-size: 2.7rem;
+    --section-lead-size: 1.06rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --container-gutter: 48px;
+    --container-max: 1180px;
+    --section-gap: 72px;
+    --eyebrow-size: 0.9rem;
+    --section-title-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --container-max: 1320px;
+    --section-title-size: 3.6rem;
+    --section-lead-size: 1.12rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    --container-gutter: 72px;
+    --container-max: 1680px;
+    --section-gap: 92px;
+    --section-title-size: 4rem;
+    --section-lead-size: 1.18rem;
+    --button-text-size: 1.06rem;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  :root {
+    --container-gutter: 96px;
+    --container-max: 2200px;
+    --section-gap: 112px;
+    --section-title-size: 4.6rem;
+    --section-lead-size: 1.3rem;
+    --button-text-size: 1.16rem;
+  }
 }
 
 .sr-only {
