@@ -167,9 +167,3 @@
     padding: 26px;
   }
 }
-
-@media screen and (min-width: 1920px) {
-  .contacts__grid {
-    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
-  }
-}
