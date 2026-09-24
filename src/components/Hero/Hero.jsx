@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTypewriter } from '../../hooks/useTypewriter.js';
 import profilePhoto from '../../assets/my-foto.png';
@@ -12,16 +11,18 @@ export default function Hero() {
   return (
     <section className="hero section" id="top">
       <div className="container hero__grid">
-        <motion.div
+        <div
           className="hero__grid__content"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: 'easeOut' }}
         >
           <p className="section__eyebrow">{t('hero.eyebrow')}</p>
           <h1 ref={targetRef} className="hero__grid__content__title">
-            {displayedText}
-            <span aria-hidden="true" className="hero__cursor" />
+            <span className="hero__grid__content__title__measure" aria-hidden="true">
+              {t('hero.title')}
+            </span>
+            <span className="hero__grid__content__title__typed">
+              {displayedText}
+              <span aria-hidden="true" className="hero__cursor" />
+            </span>
           </h1>
           <p className="hero__grid__content__lead">{t('hero.lead')}</p>
           <div className="hero__grid__content__actions">
@@ -32,21 +33,27 @@ export default function Hero() {
               {t('hero.secondary')}
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="hero-visual"
-          initial={{ opacity: 0, y: 24, rotateX: 0 }}
-          animate={{ opacity: 1, y: 0, rotateX: hovered ? -12 : 0 }}
-          transition={{ delay: 0.15, duration: 0.55, ease: 'easeOut' }}
-          onHoverStart={() => setHovered(true)}
-          onHoverEnd={() => setHovered(false)}
+          style={{ transform: `perspective(800px) rotateX(${hovered ? -12 : 0}deg)` }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
           aria-label={t('hero.profileName')}
         >
-            <img className="portrait-photo" src={profilePhoto} alt={t('hero.profileName')} />
+            <img
+              className="portrait-photo"
+              src={profilePhoto}
+              alt={t('hero.profileName')}
+              width="640"
+              height="640"
+              fetchPriority="high"
+              decoding="async"
+            />
             <div className="code-chip chip-one">React + TS</div>
             <div className="code-chip chip-two">Mobile First</div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
