@@ -1,10 +1,18 @@
 .hero {
+<<<<<<< HEAD
   display: block;
   overflow-x: hidden;
+=======
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
 
   &__grid {
     display: grid;
     align-items: center;
+<<<<<<< HEAD
     gap: 30px;
     width: min(calc(100% - (var(--container-gutter) * 2)), var(--container-max));
     max-width: calc(100% - (var(--container-gutter) * 2));
@@ -19,6 +27,18 @@
     min-width: 0;
     overflow-x: hidden;
   }
+=======
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      min-width: 0;
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
 
   &__grid__content__title {
     max-width: 100%;
@@ -71,6 +91,12 @@
   justify-self: center;
   margin-inline: auto;
   transform-style: preserve-3d;
+<<<<<<< HEAD
+=======
+  width: min(100%, 300px);
+  max-width: 100%;
+  min-width: 0;
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
 
   &:hover .portrait-photo {
     filter: saturate(1) contrast(1.06);
@@ -111,14 +137,24 @@
 }
 
 .chip-one {
+<<<<<<< HEAD
   top: 18%;
   left: 4%;
+=======
+  top: 21%;
+  left: 0;
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   animation: chipFloat 5.2s ease-in-out infinite;
 }
 
 .chip-two {
+<<<<<<< HEAD
   right: 2%;
   bottom: 20%;
+=======
+  right: 0;
+  bottom: 23%;
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   animation: chipFloat 5.2s ease-in-out 0.7s infinite;
 }
 
@@ -157,7 +193,11 @@
   }
 
   .hero-visual {
+<<<<<<< HEAD
     width: min(78%, 380px);
+=======
+    width: min(100%, 340px);
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   }
 }
 
@@ -177,7 +217,11 @@
   }
 
   .hero-visual {
+<<<<<<< HEAD
     width: min(100%, 360px);
+=======
+    width: min(100%, 400px);
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   }
 }
 
@@ -196,11 +240,15 @@
   }
 
   .hero-visual {
+<<<<<<< HEAD
     width: min(100%, 440px);
   }
 
   .code-chip {
     font-size: 0.9rem;
+=======
+    width: min(100%, 460px);
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   }
 }
 
@@ -219,7 +267,11 @@
   }
 
   .hero-visual {
+<<<<<<< HEAD
     width: min(100%, 540px);
+=======
+    width: min(100%, 580px);
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   }
 }
 
@@ -237,6 +289,7 @@
   }
 
   .hero-visual {
+<<<<<<< HEAD
     width: min(100%, 640px);
   }
 
@@ -262,5 +315,8 @@
 
   .hero-visual {
     width: min(100%, 760px);
+=======
+    width: min(100%, 700px);
+>>>>>>> 582b9e4813b1f6d40466081568e186e731bd12e8
   }
 }
