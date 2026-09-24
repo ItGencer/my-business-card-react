@@ -12,6 +12,7 @@
     position: relative;
     display: grid;
     width: min(100%, 980px);
+    min-width: 0;
     max-height: calc(100dvh - 24px);
     overflow: auto;
     border: 1px solid var(--border);
@@ -58,6 +59,7 @@
   &__screen {
     position: relative;
     min-height: 280px;
+    min-width: 0;
     align-content: end;
     overflow: hidden;
     border-radius: var(--radius);
@@ -93,12 +95,14 @@
 
     strong {
       position: relative;
-      width: fit-content;
+      display: inline-block;
+      max-width: 100%;
       border-radius: var(--radius);
       padding: 10px 12px;
       background: rgba(15, 23, 42, 0.72);
-      font-size: clamp(1.35rem, 5vw, 2.4rem);
+      font-size: 1.35rem;
       line-height: 1.1;
+      overflow-wrap: break-word;
     }
   }
 
@@ -107,7 +111,7 @@
     z-index: 2;
     top: 14px;
     left: 14px;
-    width: fit-content;
+    max-width: calc(100% - 28px);
     border-radius: var(--radius);
     padding: 7px 10px;
     background: rgba(15, 23, 42, 0.82);
@@ -179,6 +183,7 @@
     align-content: start;
     gap: 14px;
     padding: 0 24px 26px;
+    min-width: 0;
 
     p,
     h3,
@@ -193,12 +198,14 @@
     }
 
     h3 {
-      font-size: clamp(1.7rem, 6vw, 3rem);
+      font-size: 1.7rem;
       line-height: 1.08;
+      overflow-wrap: break-word;
     }
 
     span {
       color: var(--text-muted);
+      overflow-wrap: break-word;
     }
   }
 
@@ -206,6 +213,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    min-width: 0;
 
     em {
       border-radius: 999px;
@@ -215,6 +223,40 @@
       font-size: 0.78rem;
       font-style: normal;
       font-weight: 800;
+      overflow-wrap: break-word;
     }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .portfolio-modal {
+    padding: 24px;
+
+    &__dialog {
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      max-height: calc(100dvh - 48px);
+    }
+
+    &__slider {
+      padding: 24px 24px 52px;
+    }
+
+    &__content {
+      padding: 72px 28px 32px 0;
+    }
+
+    &__screen strong {
+      font-size: 1.75rem;
+    }
+
+    &__content h3 {
+      font-size: 2.35rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .portfolio-modal__dialog {
+    width: min(100%, 1180px);
   }
 }

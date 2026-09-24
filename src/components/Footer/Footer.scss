@@ -5,9 +5,10 @@
 
   &__inner {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: flex-start;
     gap: 12px;
+    min-width: 0;
 
     a {
       display: grid;
@@ -24,6 +25,15 @@
       margin: 0;
       color: var(--text-muted);
       font-weight: 600;
+      overflow-wrap: break-word;
     }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .footer__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

@@ -8,10 +8,12 @@
     display: grid;
     gap: 16px;
     padding: 20px;
+    width: 100%;
 
     a {
       display: grid;
       gap: 4px;
+      min-width: 0;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 14px 16px;
@@ -47,6 +49,7 @@
   display: grid;
   gap: 16px;
   padding: 20px;
+  width: 100%;
 
   label {
     display: grid;
@@ -59,6 +62,7 @@
     input,
     textarea {
       width: 100%;
+      min-width: 0;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 13px 14px;
@@ -119,5 +123,53 @@
       opacity: 0.72;
       transform: none;
     }
+  }
+}
+
+#contacts{
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .section__lead__form {
+    display: grid;
+    grid-gap: 20px;
+    align-items: start;
+  }
+
+  .contact-form {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+  }
+
+  .contacts__links {
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+.section__lead__form{
+  max-width: 1000px;
+}
+}
+
+@media screen and (min-width: 1440px) {
+  .contacts__grid {
+    gap: 48px;
+  }
+
+  .contacts__links,
+  .contact-form {
+    padding: 26px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .contacts__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
   }
 }

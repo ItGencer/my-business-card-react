@@ -3,6 +3,7 @@
     display: grid;
     gap: 14px;
     margin-top: 34px;
+    min-width: 0;
   }
 }
 
@@ -12,6 +13,7 @@
   padding: 22px;
   background: var(--bg-elevated);
   box-shadow: var(--shadow-soft);
+  min-width: 0;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
@@ -29,6 +31,7 @@
   p {
     margin: 0;
     color: var(--text-muted);
+    overflow-wrap: break-word;
   }
 }
 
@@ -37,10 +40,11 @@
   gap: 22px;
   margin-top: 24px;
   padding: 24px;
+  min-width: 0;
 
   h3 {
     margin: 0 0 10px;
-    font-size: clamp(1.35rem, 4vw, 2rem);
+    font-size: 1.35rem;
   }
 
   p {
@@ -64,10 +68,48 @@
     background: color-mix(in srgb, var(--bg-elevated) 82%, transparent);
     color: var(--text-muted);
     font-weight: 600;
+    overflow-wrap: break-word;
 
     &::marker {
       color: var(--accent-strong);
       font-weight: 800;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .about__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .about__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .about-process {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    align-items: start;
+    padding: 30px;
+
+    h3 {
+      font-size: 1.65rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .about-card {
+    padding: 28px;
+  }
+
+  .about-process {
+    padding: 36px;
+
+    h3 {
+      font-size: 2rem;
     }
   }
 }

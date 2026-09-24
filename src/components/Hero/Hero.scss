@@ -1,45 +1,52 @@
 .hero {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
+  display: block;
+  overflow-x: hidden;
 
   &__grid {
     display: grid;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
+    width: min(calc(100% - (var(--container-gutter) * 2)), var(--container-max));
+    max-width: calc(100% - (var(--container-gutter) * 2));
+    min-width: 0;
+  }
+
+  &__grid__content {
+    display: grid;
+    gap: 0;
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    overflow-x: hidden;
+  }
 
-    &__content {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-      min-width: 0;
+  &__grid__content__title {
+    max-width: 100%;
+    font-size: 1.78rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
 
-      &__title {
-        text-wrap: balance;
-        font-size: clamp(1.9rem, 8vw, 2.35rem);
-        line-height: 1.04;
-      }
+  &__grid__content__lead {
+    max-width: 100%;
+    margin-top: 16px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    overflow-wrap: break-word;
+  }
 
-      &__lead {
-        margin-top: 16px;
-        color: var(--text-muted);
-        font-size: clamp(0.98rem, 3.6vw, 1.08rem);
-      }
+  &__grid__content__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 24px;
 
-      &__actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 22px;
-      }
-    }
-
-    &__content {
-      min-width: 0;
+    .button {
+      width: 100%;
     }
   }
 }
@@ -55,12 +62,15 @@
 }
 
 .hero-visual {
-  display: flex;
-  justify-content: center;
-  transform-style: preserve-3d;
-  width: min(100%, 300px);
+  position: relative;
+  display: grid;
+  width: min(100%, 320px);
   max-width: 100%;
-  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+  margin-inline: auto;
+  transform-style: preserve-3d;
 
   &:hover .portrait-photo {
     filter: saturate(1) contrast(1.06);
@@ -69,40 +79,46 @@
 }
 
 .portrait-photo {
-  inset: 22%;
-  object-fit: cover;
+  width: 82%;
+  aspect-ratio: 1;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
   mask-image: radial-gradient(
     ellipse 72% 72% at 50% 48%,
     #000 52%,
     transparent 100%
   );
-  width: 80%;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 .code-chip {
   position: absolute;
   z-index: 2;
+  max-width: calc(100% - 24px);
   border: 1px solid rgba(148, 163, 184, 0.38);
   border-radius: 10px;
-  padding: 8px 11px;
+  padding: 8px 10px;
   background: rgba(15, 23, 42, 0.9);
   color: #ffffff;
-  font-size: clamp(15px, 1vw, 25px);
+  font-size: 0.78rem;
   font-weight: 800;
   line-height: 1;
+  white-space: nowrap;
   box-shadow: 0 14px 30px rgba(2, 6, 23, 0.22);
 }
 
 .chip-one {
-  top: 21%;
-  left: 0;
+  top: 18%;
+  left: 4%;
   animation: chipFloat 5.2s ease-in-out infinite;
 }
 
 .chip-two {
-  right: 0;
-  bottom: 23%;
+  right: 2%;
+  bottom: 20%;
   animation: chipFloat 5.2s ease-in-out 0.7s infinite;
 }
 
@@ -112,82 +128,139 @@
   }
 }
 
-@keyframes orbitSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes chipFloat {
   50% {
     transform: translateY(-8px);
   }
 }
 
+@media screen and (min-width: 420px) {
+  .hero__grid__content__title {
+    font-size: 2.08rem;
+  }
+
+  .hero__grid__content__actions {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+
+    .button {
+      width: auto;
+      flex: 0 1 auto;
+    }
+  }
+}
+
 @media screen and (min-width: 600px) {
-  .hero__grid {
-    grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr);
-    gap: 32px;
+  .hero__grid__content__title {
+    font-size: 2.45rem;
   }
 
   .hero-visual {
-    width: min(100%, 340px);
+    width: min(78%, 380px);
   }
 }
 
 @media screen and (min-width: 768px) {
   .hero__grid {
-    gap: 44px;
+    grid-template-columns: minmax(0, 1.12fr) minmax(240px, 0.88fr);
+    gap: 34px;
   }
 
   .hero__grid__content__title {
-    font-size: clamp(2.35rem, 5vw, 4rem);
+    font-size: 2.65rem;
   }
 
   .hero__grid__content__lead {
-    max-width: 640px;
-    font-size: clamp(1.08rem, 2vw, 1.3rem);
+    max-width: 620px;
+    font-size: 1.08rem;
   }
 
   .hero-visual {
-    width: min(100%, 400px);
+    width: min(100%, 360px);
   }
 }
 
 @media screen and (min-width: 1024px) {
-  
   .hero__grid {
-    grid-template-columns: minmax(0, 3fr) minmax(360px, 2fr);
-    gap: 56px;
-
-    &__content__title {
-    font-size: clamp(2.75rem, 4vw, 4rem);
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+    gap: 52px;
   }
 
+  .hero__grid__content__title {
+    font-size: 3.35rem;
   }
-  
+
+  .hero__grid__content__lead {
+    font-size: 1.18rem;
+  }
+
   .hero-visual {
-    width: min(100%, 460px);
+    width: min(100%, 440px);
+  }
+
+  .code-chip {
+    font-size: 0.9rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .hero__grid {
     gap: 72px;
-    
-    &__content__lead {
+  }
+
+  .hero__grid__content__title {
+    font-size: 4.05rem;
+  }
+
+  .hero__grid__content__lead {
     max-width: 720px;
+    font-size: 1.26rem;
   }
-  }
-  
+
   .hero-visual {
-    width: min(100%, 580px);
+    width: min(100%, 540px);
   }
 }
 
-@media screen and (min-width: 1440px) {
-  
+@media screen and (min-width: 1920px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
+  }
+
+  .hero__grid__content__title {
+    font-size: 4.65rem;
+  }
+
+  .hero__grid__content__lead {
+    font-size: 1.34rem;
+  }
+
   .hero-visual {
-    width: min(100%, 700px);
+    width: min(100%, 640px);
+  }
+
+  .code-chip {
+    font-size: 1.05rem;
+    padding: 10px 13px;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .hero__grid {
+    gap: 96px;
+  }
+
+  .hero__grid__content__title {
+    font-size: 5.35rem;
+  }
+
+  .hero__grid__content__lead {
+    max-width: 900px;
+    font-size: 1.5rem;
+  }
+
+  .hero-visual {
+    width: min(100%, 760px);
   }
 }
