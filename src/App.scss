@@ -53,11 +53,17 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 8%, var(--accent-soft), transparent 30rem),
     radial-gradient(
@@ -96,13 +102,17 @@ img {
 }
 
 .app-shell {
+  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 .container {
+  width: min(100%, 1200px);
+  max-width: 100%;
   margin-inline: auto;
-  width: clamp(310px, 92vw , 2500px);
+  padding-inline: 16px;
 }
 
 .section {
